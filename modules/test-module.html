@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Módulo</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #0f172a; color: white; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .error { color: #ef4444; }
+        .success { color: #10b981; }
+        pre { background: #1e293b; padding: 15px; border-radius: 8px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Teste de Carregamento do Módulo</h1>
+        <div id="status">Carregando...</div>
+        <div id="content"></div>
+    </div>
+
+    <script>
+        async function testModuleLoad() {
+            const status = document.getElementById('status');
+            const content = document.getElementById('content');
+            
+            try {
+                status.innerHTML = 'Tentando carregar module-01.md...';
+                
+                const response = await fetch('module-01.md');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const text = await response.text();
+                
+                status.innerHTML = '<span class="success">✓ Arquivo carregado com sucesso!</span>';
+                content.innerHTML = `
+                    <h2>Conteúdo do arquivo:</h2>
+                    <pre>${text.substring(0, 500)}...</pre>
+                    <p>Tamanho total: ${text.length} caracteres</p>
+                `;
+                
+            } catch (error) {
+                status.innerHTML = `<span class="error">✗ Erro: ${error.message}</span>`;
+                content.innerHTML = `
+                    <h2>Detalhes do erro:</h2>
+                    <pre>${error.stack || error.toString()}</pre>
+                `;
+            }
+        }
+        
+        testModuleLoad();
+    </script>
+</body>
+</html>
+

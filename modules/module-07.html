@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo - Curso de Vibe Coding</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/module.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body class="module-page">
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <i class="fas fa-code"></i>
+                <span>Vibe Coding</span>
+            </div>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">Início</a>
+                <a href="../index.html#modules" class="nav-link">Módulos</a>
+                <a href="../index.html#methodology" class="nav-link">Metodologia</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="module-content">
+            <!-- Conteúdo será carregado dinamicamente -->
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Carregando módulo...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-code"></i>
+                    <span>Vibe Coding Course</span>
+                </div>
+                <div class="footer-text">
+                    <p>Criado com ❤️ para democratizar o aprendizado de programação com IA</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/module-template.js"></script>
+
+    <style>
+        .loading-spinner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh;
+            gap: var(--spacing-lg);
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-spinner p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-lg);
+        }
+    </style>
+</body>
+</html>
+
