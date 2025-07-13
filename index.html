@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="hero-actions">
-                        <a href="#start" class="btn btn-primary">
+                        <a href="#modules" class="btn btn-primary">
                             <i class="fas fa-play"></i>
                             Começar o Curso
                         </a>
@@ -219,6 +219,75 @@
             </div>
         </section>
 
+        <!-- Module Content Section (Hidden by default) -->
+        <section id="module-content" class="module-content hidden">
+            <div class="container">
+                <div class="module-header">
+                    <button class="back-btn" onclick="showCourseHome()">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar ao Curso
+                    </button>
+                    <div class="module-info">
+                        <span class="module-number" id="current-module-number">Módulo 1</span>
+                        <span class="module-duration" id="current-module-duration">
+                            <i class="fas fa-clock"></i>
+                            1h 30min
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="module-body">
+                    <div class="module-sidebar">
+                        <div class="module-toc">
+                            <h4>Conteúdo</h4>
+                            <ul class="toc-list" id="module-toc">
+                                <!-- TOC will be populated dynamically -->
+                            </ul>
+                        </div>
+                        
+                        <div class="module-progress-sidebar">
+                            <h4>Progresso</h4>
+                            <div class="progress-circle">
+                                <div class="progress-text">0%</div>
+                            </div>
+                            <div class="checkpoints-list" id="checkpoints-list">
+                                <!-- Checkpoints will be populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="module-main">
+                        <div class="module-content-area" id="module-content-area">
+                            <!-- Module content will be loaded here -->
+                        </div>
+                        
+                        <div class="module-actions">
+                            <div class="checkpoint-section">
+                                <h3>Checkpoint do Módulo</h3>
+                                <p>Marque como concluído quando terminar todas as atividades:</p>
+                                <button class="btn btn-primary complete-module" onclick="completeModule()">
+                                    <i class="fas fa-check"></i>
+                                    Marcar como Concluído
+                                </button>
+                            </div>
+                            
+                            <div class="module-navigation">
+                                <button class="btn btn-secondary" id="prev-module" onclick="goToPrevModule()">
+                                    <i class="fas fa-chevron-left"></i>
+                                    Módulo Anterior
+                                </button>
+                                
+                                <button class="btn btn-primary" id="next-module" onclick="goToNextModule()">
+                                    Próximo Módulo
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Methodology Section -->
         <section id="methodology" class="methodology">
             <div class="container">
@@ -280,7 +349,7 @@
                                 <span>Vibe Coding</span>
                             </div>
                             <div class="cycle-step" data-step="1">
-                                <i class="fas fa-idea"></i>
+                                <i class="fas fa-lightbulb"></i>
                                 <span>Idealize</span>
                             </div>
                             <div class="cycle-step" data-step="2">
@@ -292,7 +361,7 @@
                                 <span>Desenvolva</span>
                             </div>
                             <div class="cycle-step" data-step="4">
-                                <i class="fas fa-test-tube"></i>
+                                <i class="fas fa-flask"></i>
                                 <span>Teste</span>
                             </div>
                             <div class="cycle-step" data-step="5">
@@ -315,10 +384,10 @@
                         Seu produto digital está esperando para ser criado!
                     </p>
                     <div class="cta-actions">
-                        <a href="modules/module-01.html" class="btn btn-primary btn-large">
+                        <button class="btn btn-primary btn-large" onclick="startModule(1)">
                             <i class="fas fa-play"></i>
                             Iniciar Módulo 1
-                        </a>
+                        </button>
                         <div class="cta-info">
                             <i class="fas fa-clock"></i>
                             <span>Apenas 1-2 horas por dia</span>
